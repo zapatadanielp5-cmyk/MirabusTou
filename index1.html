@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="pt"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mirabus - Descubra Lima</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f8f9fa",
+                        "outline": "#8f6f6e",
+                        "inverse-surface": "#2e3132",
+                        "tertiary": "#286182",
+                        "on-primary-fixed": "#410007",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "on-background": "#191c1d",
+                        "on-secondary-fixed": "#001b3c",
+                        "primary": "#b7102a",
+                        "secondary-fixed-dim": "#b0c7f1",
+                        "on-tertiary-fixed": "#001e2e",
+                        "surface-container": "#edeeef",
+                        "surface-container-high": "#e7e8e9",
+                        "primary-container": "#db313f",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#064c6b",
+                        "secondary-container": "#bbd3fd",
+                        "surface-bright": "#f8f9fa",
+                        "background": "#f8f9fa",
+                        "primary-fixed": "#ffdad8",
+                        "on-secondary-fixed-variant": "#30476a",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#bb152c",
+                        "surface-variant": "#e1e3e4",
+                        "primary-fixed-dim": "#ffb3b1",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-secondary-container": "#445a7f",
+                        "secondary": "#485f84",
+                        "inverse-primary": "#ffb3b1",
+                        "on-primary-container": "#fffbff",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#e4bebc",
+                        "tertiary-fixed": "#c7e7ff",
+                        "on-surface": "#191c1d",
+                        "secondary-fixed": "#d5e3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#5b403f",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#92001c",
+                        "tertiary-container": "#447a9c",
+                        "on-tertiary-container": "#fcfcff",
+                        "tertiary-fixed-dim": "#98cdf2",
+                        "inverse-on-surface": "#f0f1f2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "20px",
+                        "base": "4px",
+                        "card-gap": "24px",
+                        "gutter": "16px",
+                        "section-margin": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .snap-y-mandatory { scroll-snap-type: y mandatory; }
+        .snap-start { scroll-snap-align: start; }
+        .gradient-overlay { background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 60%); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 z-50 bg-surface shadow-sm flex justify-between items-center px-container-padding h-16 w-full sticky">
+<div class="text-headline-md font-headline-md font-extrabold text-primary">Mirabus</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary font-bold text-label-md font-label-md" href="#">Explorar</a>
+<a class="text-on-surface-variant hover:bg-surface-container transition-colors px-3 py-2 rounded-lg text-label-md font-label-md" href="#">Tours</a>
+<a class="text-on-surface-variant hover:bg-surface-container transition-colors px-3 py-2 rounded-lg text-label-md font-label-md" href="#">Bilhetes</a>
+<a class="text-on-surface-variant hover:bg-surface-container transition-colors px-3 py-2 rounded-lg text-label-md font-label-md" href="#">Suporte</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container rounded-full transition-colors">notifications</button>
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-container rounded-full transition-colors">person</button>
+</div>
+</header>
+<main class="w-full">
+<!-- Main Horizontal Carousel -->
+<section class="w-full overflow-hidden">
+<div class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar w-full">
+<!-- Slide 1 -->
+<div class="flex-none w-full h-[60vh] md:h-[80vh] relative snap-start">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0MnJGVeF5Xt9cevYgPP4gHUdcXHvQOPIiaqwLlnow01nSAeuFkNo3ozp_do0Dx1BEBVd-ISd8p3qf1KOrXlXFCtPE3F-QUMZb6w6bshNpAYg3Bdjh5tn42qkZ-Yp_PemcDkcCuo0pERstalYrQVTB3pCilieMkfx2hkd-hbPqrL1lhNyDKMufy0-RobfkDhKN08c0rmSd7sk_YQhvx_3YYoxm_3rMieyb0d4wD_Rbjum7IYMAN_5iLflAaKTNCus9Y0V0OjsqcNE')"></div>
+<div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-container-padding pb-12">
+<span class="bg-primary text-white text-label-sm font-label-sm px-3 py-1 rounded-full w-fit mb-2">Destaque</span>
+<h2 class="text-white font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase tracking-tight">Tour Lima Centro</h2>
+</div>
+</div>
+<!-- Slide 2 -->
+<div class="flex-none w-full h-[60vh] md:h-[80vh] relative snap-start">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5z-Z5m6XUtoHEcUG6d5TJmNvI5ClHE-1mlVoNc_jdOnUNCOIhX_O0_pqAWNQl7EXvclVLS49smu8FHKX47Mr31G0D7vN-L2XwK5F7sW6-qrp__OXq5g42yEY1pvQWRsX0lbhckDDxFqH0m4Zmt8Oc0n5ds7NBVK39_8x4QM5MtgA_Os4txKIWtZsINB7WnCSEx_lOe1D_sgRnzZGD4CDZSg7va5TVYqaWnS2W5jzfhOlTF8pNuGO23Y5siPBlRDL8Rpyewchif2E')"></div>
+<div class="absolute inset-0 gradient-overlay flex flex-col justify-end p-container-padding pb-12">
+<span class="bg-primary text-white text-label-sm font-label-sm px-3 py-1 rounded-full w-fit mb-2">Cênico</span>
+<h2 class="text-white font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase tracking-tight">Tour Costa Verde</h2>
+</div>
+</div>
+</div>
+</section>
+<!-- Vertical Carousel Section -->
+<section class="section-margin px-container-padding">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface">Joias Históricas</h3>
+<p class="text-label-sm text-outline">Descoberta Vertical</p>
+</div>
+<div class="h-[500px] overflow-y-auto snap-y-mandatory no-scrollbar rounded-xl shadow-lg border border-surface-variant">
+<!-- Vertical Image 1 -->
+<div class="snap-start h-full w-full relative">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCILmQrLCV0GKoBY5_AlX1NN4VWT7EYb1Xxctnk6hwO2TjaSU2Yrr-3Hx-Zc6ji6mjPcbS303EaTh1qNGZGgSxOM9ulbTEOU3sj5vYWUwQuKwHOhhlIaEYb-106-hnf7NH71a7mTy2Ms_OaK_mgdV_yb4gDj52espr1O8xjJ3kgvtWUJJtTnmdWAuXDAKJ4KTQuhry5jJEZ7d8ssiqQZcByByHHMw8nStbrhp6L8LhkHc-d0MJrccX9JP6o5tQAv1O4m60OQ2gSl1Y')"></div>
+<div class="absolute bottom-6 left-6 text-white z-10">
+<h4 class="font-headline-md text-headline-md">Catedral de Lima</h4>
+</div>
+<div class="absolute inset-0 bg-black/30"></div>
+</div>
+<!-- Vertical Image 2 -->
+<div class="snap-start h-full w-full relative">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBc8PWI2rDmkKcFFiV96-TZ2CATD2qeE23bxjbdii8KP-Iu1IPa_WLbb8sqvVHLs6TqvUdjvx035q1WSQ6nHDztroxnztpf6T5FgJfF35CHbiP1_oGUWenUDxsHNej9Jo4shoFGSTXgtXJH-cS0vpfB04fH6RYUQZa1HZLsASZ-hQtB5YOFSlr4nHA5JF9y0yJKq-KMAJTHE0B3j5z13YJu8hicAbjJ_brA2KYaKHUVddVhj1K2jDdaLlluFLGem53n73TLYWoYl-I')"></div>
+<div class="absolute bottom-6 left-6 text-white z-10">
+<h4 class="font-headline-md text-headline-md">Convento de San Francisco</h4>
+</div>
+<div class="absolute inset-0 bg-black/30"></div>
+</div>
+<!-- Vertical Image 3 -->
+<div class="snap-start h-full w-full relative">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAnOTFm0f1gbxZKwPy01t947ZfIh19kI1gWmIXlrvRuEESbdS9X_iyzSG_apQQntERMz2cnjmApQbew4K5jfYE4aqc0KA7cxFcNoJ_tNeHbaSlV3ErwgETrGUPFDODoWPawgqJqYwYmzs2foquf9zAVFtOoENsFBVKjRkj6FZ8uysGXzMGO2E3mr3oEcc0ZJ6o8xbEtgngToMqN2-UBASo2dq-K58vRW6hrM11fmC1kjrop3fAQNRP90fq6JO78HuDTlQRyHUde9PU')"></div>
+<div class="absolute bottom-6 left-6 text-white z-10">
+<h4 class="font-headline-md text-headline-md">Catacumbas</h4>
+</div>
+<div class="absolute inset-0 bg-black/30"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Banner Collage -->
+<section class="w-full h-48 md:h-80 my-section-margin relative overflow-hidden">
+<div class="w-full h-full bg-cover bg-fixed bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0MnJGVeF5Xt9cevYgPP4gHUdcXHvQOPIiaqwLlnow01nSAeuFkNo3ozp_do0Dx1BEBVd-ISd8p3qf1KOrXlXFCtPE3F-QUMZb6w6bshNpAYg3Bdjh5tn42qkZ-Yp_PemcDkcCuo0pERstalYrQVTB3pCilieMkfx2hkd-hbPqrL1lhNyDKMufy0-RobfkDhKN08c0rmSd7sk_YQhvx_3YYoxm_3rMieyb0d4wD_Rbjum7IYMAN_5iLflAaKTNCus9Y0V0OjsqcNE')"></div>
+<div class="absolute inset-0 bg-primary/20 backdrop-blur-[2px] flex items-center justify-center">
+<div class="text-center px-container-padding">
+<h2 class="text-white font-headline-lg text-headline-lg-mobile md:text-headline-lg drop-shadow-md">Circuito Mágico das Águas e Mais</h2>
+<p class="text-white/90 text-body-md font-body-md mt-2">O melhor de Lima em uma única viagem</p>
+</div>
+</div>
+</section>
+<!-- Price Grid (Bento Style) -->
+<section class="section-margin px-container-padding">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-card-gap">
+<!-- Card 1: The Nav Card -->
+<div class="bg-inverse-surface rounded-xl p-8 flex flex-col justify-between min-h-[280px] shadow-lg">
+<div>
+<h3 class="text-white font-display-lg text-display-lg mb-2">TOURS</h3>
+<p class="text-surface-variant font-body-md">Descubra o coração do Peru com nossos passeios de ônibus curados.</p>
+</div>
+<button class="bg-primary hover:bg-primary-container text-white px-6 py-3 rounded-full w-fit font-label-md transition-all active:scale-95">
+                        VER TUDO
+                    </button>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="h-48 w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0MnJGVeF5Xt9cevYgPP4gHUdcXHvQOPIiaqwLlnow01nSAeuFkNo3ozp_do0Dx1BEBVd-ISd8p3qf1KOrXlXFCtPE3F-QUMZb6w6bshNpAYg3Bdjh5tn42qkZ-Yp_PemcDkcCuo0pERstalYrQVTB3pCilieMkfx2hkd-hbPqrL1lhNyDKMufy0-RobfkDhKN08c0rmSd7sk_YQhvx_3YYoxm_3rMieyb0d4wD_Rbjum7IYMAN_5iLflAaKTNCus9Y0V0OjsqcNE')"></div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline-md text-headline-md">Tour Lima Centro</h4>
+<span class="text-primary font-bold text-headline-md">S/. 30</span>
+</div>
+<button class="w-full border border-primary text-primary hover:bg-primary-fixed py-3 rounded-xl font-label-md transition-colors">Reservar Agora</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="h-48 w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5z-Z5m6XUtoHEcUG6d5TJmNvI5ClHE-1mlVoNc_jdOnUNCOIhX_O0_pqAWNQl7EXvclVLS49smu8FHKX47Mr31G0D7vN-L2XwK5F7sW6-qrp__OXq5g42yEY1pvQWRsX0lbhckDDxFqH0m4Zmt8Oc0n5ds7NBVK39_8x4QM5MtgA_Os4txKIWtZsINB7WnCSEx_lOe1D_sgRnzZGD4CDZSg7va5TVYqaWnS2W5jzfhOlTF8pNuGO23Y5siPBlRDL8Rpyewchif2E')"></div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline-md text-headline-md">Tour Costa Verde</h4>
+<span class="text-primary font-bold text-headline-md">S/. 30</span>
+</div>
+<button class="w-full border border-primary text-primary hover:bg-primary-fixed py-3 rounded-xl font-label-md transition-colors">Reservar Agora</button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="h-48 w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAnOTFm0f1gbxZKwPy01t947ZfIh19kI1gWmIXlrvRuEESbdS9X_iyzSG_apQQntERMz2cnjmApQbew4K5jfYE4aqc0KA7cxFcNoJ_tNeHbaSlV3ErwgETrGUPFDODoWPawgqJqYwYmzs2foquf9zAVFtOoENsFBVKjRkj6FZ8uysGXzMGO2E3mr3oEcc0ZJ6o8xbEtgngToMqN2-UBASo2dq-K58vRW6hrM11fmC1kjrop3fAQNRP90fq6JO78HuDTlQRyHUde9PU')"></div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline-md text-headline-md">Lima de dia + Catacumbas</h4>
+<div class="text-right">
+<p class="text-label-sm text-outline">a partir de</p>
+<span class="text-primary font-bold text-headline-md">S/. 80</span>
+</div>
+</div>
+<button class="w-full border border-primary text-primary hover:bg-primary-fixed py-3 rounded-xl font-label-md transition-colors">Reservar Agora</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-10 px-container-padding flex flex-col items-center gap-4 bg-surface-container-high">
+<div class="text-headline-md font-headline-md text-primary font-extrabold">Mirabus</div>
+<nav class="flex gap-6 flex-wrap justify-center">
+<a class="text-on-surface-variant hover:text-primary underline transition-all text-label-sm font-label-sm" href="#">Sobre Nós</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all text-label-sm font-label-sm" href="#">Termos de Serviço</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all text-label-sm font-label-sm" href="#">Política de Privacidade</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all text-label-sm font-label-sm" href="#">Contato</a>
+</nav>
+<p class="text-on-surface-variant text-label-sm font-label-sm mt-4">© 2024 Mirabus Tours. Todos os direitos reservados.</p>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-safe bg-surface-container-lowest shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-xl md:hidden">
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-label-sm font-label-sm">Explorar</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">map</span>
+<span class="text-label-sm font-label-sm">Tours</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">confirmation_number</span>
+<span class="text-label-sm font-label-sm">Bilhetes</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">chat</span>
+<span class="text-label-sm font-label-sm">Suporte</span>
+</div>
+</nav>
+<!-- FAB: WhatsApp -->
+<a class="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-50 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_8px_24px_rgba(0,0,0,0.2)] hover:scale-110 transition-transform active:scale-95" href="https://wa.me/51999999999" target="_blank">
+<svg class="w-8 h-8 fill-current" viewbox="0 0 24 24">
+<path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793 0-.853.448-1.273.607-1.446.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.144.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"></path>
+</svg>
+</a>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.bg-surface-container-lowest').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.transition = 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>
